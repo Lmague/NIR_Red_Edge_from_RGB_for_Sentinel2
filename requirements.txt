@@ -1,0 +1,12 @@
+# Training and inference (TensorFlow only).
+tensorflow>=2.15
+numpy>=1.24
+matplotlib>=3.7
+tqdm>=4.65
+pandas>=2.0
+
+# Data preparation: Sentinel-2 export from Earth Engine to GCS.
+earthengine-api>=0.1.380
+
+# GCS access from tf.data (only needed when reading gs:// patterns).
+gcsfs>=2024.2.0

@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Notebooks
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# Model checkpoints and weights
+checkpoints*/
+*.ckpt
+*.h5
+*.keras
+*.weights.h5
+
+# Data
+*.tfrecord
+*.tfrecord.gz
+data/
+dataset/
+
+# Logs / experiment tracking
+wandb/
+runs/
+logs/
+*.log
+
+# Secrets / credentials
+.env*
+service_account*.json
+*credentials*.json
+*-key.json
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Misc
+*.bak
+verification_samples.png
