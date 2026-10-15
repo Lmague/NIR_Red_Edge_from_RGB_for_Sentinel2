@@ -28,11 +28,11 @@ checkpoints*/
 *.keras
 *.weights.h5
 
-# Data
+# Data (root-level only, so src/data/ is still tracked)
 *.tfrecord
 *.tfrecord.gz
-data/
-dataset/
+/data/
+/dataset/
 
 # Logs / experiment tracking
 wandb/

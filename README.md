@@ -2,7 +2,7 @@
 
 Predict Sentinel-2 NIR / Red-Edge bands (B5–B8) from RGB (B2/B3/B4), in TensorFlow.
 
-Side project for my Master's. NDVI and NDRE need a NIR band that plain RGB doesn't have, so I trained a model to predict it from RGB. It's trained on Sentinel-2 forest patches and each split has their own regions. Its Sentinel-2 so it's all at 10 m/pixel which means it works for satellites but not on drone or phone photos so it might be interessting to look if these models works on these spatial resolution too.
+Side project for my Master's. NDVI and NDRE need a NIR band that plain RGB doesn't have, so I trained a model to predict it from RGB. It's trained on Sentinel-2 forest patches and each split has their own regions. It's Sentinel-2 so it's all at 10 m/pixel which means it works for satellites but not on drone or phone photos so it might be interesting to look if these models work on these spatial resolutions too.
 
 ## Structure
 
