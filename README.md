@@ -56,7 +56,7 @@ Side project for my Master's. NDVI and NDRE need a NIR band that plain RGB doesn
 
 Patches are ~129×129 from GEE, crop-padded to 128×128. Reflectance values divided by 10 000 and clipped to [0, 1]. Inputs stacked as `[B4, B3, B2]`, targets as `[B5, B6, B7, B8]`. The mask propagates through the loss.
 
-Train and test regions are geographically disjoint — the test set is never seen during training, so it's a real generalization check.
+Train and test regions are geographically disjoint, so the test set is never seen during training. That makes it a real generalization check.
 
 | Split | Regions |
 | --- | --- |
@@ -81,7 +81,7 @@ CNN stem (64 then 112), 4 MSGPP blocks. Each block: depthwise 7×7 spatial mix (
 
 ### MSTPP - 1,721,110 params
 
-TF port of MST++ (Cai et al., CVPRW 2022) at the paper's structural config: embedding 28, 3 SST stages, `[2,2,2]` SAB blocks per level, heads `[1,2,4]`, FFN expansion 2.66. SAB = spectral self-attention + gated-DConv FFN. Two deliberate deviations from the reference, both for stability at the paper's tiny dim: a fixed `1/seq_len` attention scale instead of a learned per-head temperature, and a 0.1 residual scale on the attention and FFN branches (carried over from the original notebook). It probably needed a longer training run than I could afford so that's likely part of why it is not as good as my CNN_MSGPP in the results below.
+TF port of MST++ (Cai et al., CVPRW 2022) at the paper's structural config: embedding 28, 3 SST stages, `[2,2,2]` SAB blocks per level, heads `[1,2,4]`, FFN expansion 2.66. SAB = spectral self-attention + gated-DConv FFN. I changed two things from the reference, both to keep training stable at the paper's tiny dim: a fixed `1/seq_len` attention scale instead of a learned per-head temperature, and a 0.1 residual scale on the attention and FFN branches (carried over from the original notebook). I probably needed a longer training run than I could afford, which is part of why it is not as good as my CNN_MSGPP in the results below.
 
 ## Train
 
@@ -148,7 +148,7 @@ python scripts/verify_params.py  # checks all 4 trained models build with the ri
 
 - Training set is forest patches only, so reflectance predictions outside vegetation are likely off.
 - Validation split is regions used during training; the test regions above are the only real generalization test.
-- Heavier image-restoration backbones (NAFNet, Restormer, RCAN) would be the natural next thing to try with more compute.
+- Heavier image-restoration backbones (NAFNet, Restormer, RCAN) would be the next thing to try with more compute.
 
 ## References
 
